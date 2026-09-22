@@ -40,7 +40,7 @@
 >
 > We've hit **32K downloads**! Thank you to everyone for supporting Box.
 
-[![Download Box v3.4.5 APK](https://img.shields.io/badge/Download-Latest_APK-A6E3A1?style=for-the-badge&logo=android&logoColor=1E1E2E)](https://github.com/jegly/Box/releases/latest)
+[![Download Box v3.5.5 APK](https://img.shields.io/badge/Download-Latest_APK-A6E3A1?style=for-the-badge&logo=android&logoColor=1E1E2E)](https://github.com/jegly/Box/releases/latest)
 
 > **Note:** If you're using a custom ROM (LineageOS, GrapheneOS, CalyxOS), download the `custom-rom-support` APK from the [latest release](https://github.com/jegly/Box/releases/latest) instead.
 
@@ -92,12 +92,15 @@ Box began as a fork of [Google AI Edge Gallery](https://github.com/google-ai-edg
 <details>
 <summary>
 
-## Changelog v1.0.7 – v3.4.5
+## Changelog v1.0.7 – v3.5.5
 
 </summary>
 
 | Version | Feature | Details |
 |---|---|---|
+| v3.5.5 | **Removed several crashing models** | A batch of newer LiteRT models were failing to load or crashing outright, mostly reported on lower RAM devices like the Pixel 6a. They need a newer LiteRT runtime than Box currently ships. Removed: Granite-4.0-H-1B, InternVL3-2B, InternVL3_5-2B, Jan-nano, MiniCPM5-1B (int4), Nanbeige4.2-3B, OLMo-2-1B-Instruct, Phi-4-mini-instruct, Phi-4-mini-reasoning, SmolLM3-3B, SmolVLM2-2.2B, SmolVLM2-500M, and both Ministral-3-3B models. |
+| v3.5.5 | **Kokoro TTS download fixed** | The Hugging Face repo Kokoro downloaded from was wiped upstream, so downloads landed on an error page instead of the model. Repointed to the model's new home; existing installs redownload cleanly. |
+| v3.5.5 | **Gemini Nano hub updated** | The 256-token reply cap is lifted, up to 4096 tokens depending on device. Added Pixel 11 (Nano v4) support and a much longer list of supported phones. Updated the About text in the hub, which was out of date. |
 | v3.4.5 | **Google Firebase removed** | Firebase Analytics and Firebase Cloud Messaging came in with the original Google AI Edge Gallery fork and were never used by Box. There was no configuration file for them, so they could not start up, collect anything or send anything — and analytics was switched off in the manifest on top of that. They are now gone from the app entirely rather than merely disabled, along with 20 dormant tracking calls and six Google entries in the app manifest. Nothing you can see or do in Box changes. |
 | v3.4.5 | **Google usage logging switched off** | Removing Firebase surfaced a second piece of Google code: **Clearcut**, a usage-logging transport that arrives inside **ML Kit** (used for background removal, face detection and reading text from images), so it did not leave with Firebase. It sends over an ordinary HTTPS connection rather than through Google Play services — meaning a de-Googled phone does not stop it — and ML Kit provides no setting to turn it off. Box now disables it at the source: with nothing registered to receive them, events are discarded before they are even written down. The ML Kit features themselves are unaffected. |
 | v3.3.5 | **Pixel 11 / Tensor G6 acceleration** | Two models rebuilt for the **Tensor G6** in the Pixel 11 — **Gemma-4-E2B-it (Tensor G6)** (3.3 GB, 32K context, text/image/audio) and **Gemma 3 1B-IT (Tensor G6)** (2.0 GB, text only). Both run on the phone's dedicated AI hardware rather than the GPU, and are substantially faster there than the standard build. They appear automatically on a Pixel 11 and are hidden everywhere else. The Pixel 10 / Tensor G5 path is unchanged. |
@@ -600,8 +603,8 @@ Licensed under the Apache License, Version 2.0
 
   | Variant | SHA-256 |
   |---|---|
-  | main | *sha256:9de1603ad1301f016e44965a4212f42d56524ce872225ed92b237638030eaf0a* |
-  | custom-rom-support | *sha256:cf0af09dd474c80b72647b47d72868b573651f8f7d4f6cb11106e93c8eb72e89* |
+  | main | *sha256:2869458b88f137501c024a1fa7df3fea551443d12c1dfcd71a0b72da595be645* |
+  | custom-rom-support | *sha256:9375b0e42d856256634965e76e721f2a6135897263a94677e9898f0403733d71* |
 
   
   ### Signing certificate
