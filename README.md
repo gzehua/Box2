@@ -569,7 +569,7 @@ always welcome.
  **[PocketSage](https://github.com/umerarif11/pocketsage)** — Umer Arif for the clean, fully offline RAG-on-Android
   reference implementation that the Document Q&A feature in Box is based on.
 
- **[sherpa-onnx](https://github.com/woheller69/sherpa-onnx)** — woheller69 for the clean, fully offline speech-on-Android
+ **[SherpaTTS](https://github.com/woheller69/ttsEngine)** — woheller69 for the clean, fully offline speech-on-Android
   reference implementation that inspired one of the early speech features in Box.
 
 
