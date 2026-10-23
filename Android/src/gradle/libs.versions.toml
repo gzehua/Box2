@@ -21,7 +21,7 @@ protobuf = "0.10.0"
 protobufJavaLite = "4.26.1"
 #noinspection GradleDependency
 litertlm = "0.10.0"
-commonmark = "1.0.0-alpha02"
+commonmark = "1.0.0-alpha05"
 richtext = "1.0.0-alpha05"
 playServicesTfliteJava = "16.5.0"
 playServicesTfliteGpu= "16.5.0"
